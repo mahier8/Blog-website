@@ -1,0 +1,26 @@
+<!-- check the EJS layout -->
+<%- include("partials/header") -%> 
+
+<h1>Home</h1>
+
+<!-- the variable below was given a new name  -->
+<p> <%= startingContent %> </p>
+
+    <!-- we first created a for loop to alllow for multiple posts by a user -->
+    <!-- the loop was then replaced by the forEach method -->
+    <% posts.forEach(function(post) { %>
+    
+    <h1><%=post.title%></h1>
+    <!-- the content had a substring method applied to it to only 
+        render 100 caharcters and a concatenated string with "..." -->
+    <p>
+        <%=post.content.substring(0, 100) + " ..."%>
+        <!-- setting a link to direct to, which is equal 
+            to the title of the content of the read more  -->
+        <a href="/posts/<%= post.title %>">Read More</a>
+    </p>
+
+    <% }); %>
+
+<!-- check the EJS layout -->
+<%- include("partials/footer") -%> 
